@@ -15,6 +15,7 @@ const port = process.env.PORT || 3000
 app.engine('hbs', exphbs.engine({ extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }))
 app.use(expSession({ secret: 'secret', resave: false, saveUninitialized: false }))
