@@ -35,6 +35,42 @@ const cartController = {
     } catch (err) {
       next(err)
     }
+  },
+
+  incrementCartItemQuantity: async (req, res, next) => {
+    try {
+      const id = req.params.id
+      const cartId = req.session.cartId
+      const cartItem = await CartItem.findOne({ where: { id } })
+      if (cartItem.cartId === cartId) await cartItem.increment('quantity')
+      res.redirect('back')
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  decrementCartItemQuantity: async (req, res, next) => {
+    try {
+      const id = req.params.id
+      const cartId = req.session.cartId
+      const cartItem = await CartItem.findOne({ where: { id } })
+      if (cartItem.quantity > 1 && cartItem.cartId === cartId) await cartItem.decrement('quantity')
+      res.redirect('back')
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  deleteCartItem: async (req, res, next) => {
+    try {
+      const id = req.params.id
+      const cartId = req.session.cartId
+      const cartItem = await CartItem.findOne({ where: { id } })
+      if (cartItem.cartId === cartId) await cartItem.destroy()
+      res.redirect('back')
+    } catch (err) {
+      next(err)
+    }
   }
 }
 

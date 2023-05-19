@@ -25,13 +25,13 @@
         </td>
         <td>
           <div style="display: flex;">
-            <form action="/cartItem/{{this.CartItem.id}}/add" method="POST">
+            <form action="/cartItem/{{this.CartItem.id}}/increment?_method=PATCH" method="POST">
               <button type="submit" class="btn btn-sm btn-outline-secondary">+</button>
             </form>
             <span style="margin: 0 20px;">
               {{this.CartItem.quantity}}
             </span>
-            <form action="/cartItem/{{this.CartItem.id}}/sub" method="POST">
+            <form action="/cartItem/{{this.CartItem.id}}/decrement?_method=PATCH" method="POST">
               <button type="submit" class="btn btn-sm btn-outline-secondary">-</button>
             </form>
           </div>
