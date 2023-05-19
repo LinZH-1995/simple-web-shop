@@ -41,7 +41,7 @@
       <li>payment_status: {{this.paymentStatus}}</li>
     </ul>
 
-    <div class="mt-4" style="display: flex; justify-content: space-around;">
+    <div class="mt-4" style="display: flex; justify-content: space-around; min-width: 300px;">
       <form action="/orders/{{this.id}}/cancel" method="POST">
         <button type="submit" class="btn btn-primary">取消訂單</button>
       </form>
