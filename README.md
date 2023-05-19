@@ -10,10 +10,11 @@ A simple web shop app - made by [Express](https://expressjs.com/) on [Node.js](h
 * [Method-Override](https://github.com/expressjs/method-override#readme) - version 3.0.0
 * [Express-Session](https://github.com/expressjs/session#readme) - version 1.17.3
 * [Dotenv](https://github.com/motdotla/dotenv#readme) - version 16.0.3
-* [Cross-Env](https://github.com/kentcdodds/cross-env#readme) - version 7.0.3
 * [Mysql2](https://github.com/sidorares/node-mysql2#readme) - version 3.3.1
 * [Sequelize](https://github.com/sequelize/sequelize) - version 6.31.1
 * [Sequelize-Cli](https://github.com/sequelize/cli) - version 6.6.0
+* [Faker.js](https://github.com/faker-js/faker) - version 8.0.1
+* [Nodemailer](https://github.com/nodemailer/nodemailer) - version 6.9.2
 
 ## Getting Started
 ### Install - Use Terminal
