@@ -1,4 +1,14 @@
+const nodemailer = require('nodemailer')
+
 const { Order, Product, OrderItem, Cart } = require('../models')
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.ACCOUNT,
+    pass: process.env.PASSWORD
+  }
+})
 
 const orderController = {
   getOrders: async (req, res, next) => {
@@ -33,6 +43,12 @@ const orderController = {
           productId: cart.items[i].id
         })
       }))
+      const info = await transporter.sendMail({
+        from: process.env.ACCOUNT,
+        to: process.env.ACCOUNT,
+        subject: `${order.id} 訂單成立`,
+        html: `<h1>${order.id} 訂單成立</h1>`,
+      })
       res.redirect('/orders')
     } catch (err) {
       next(err)
@@ -48,7 +64,6 @@ const orderController = {
       ])
       await Promise.all(Array.from({ length: orderItems.length }, (e, i) => orderItems[i].destroy()))
       await order.destroy()
-      console.log(order, '-------', orderItems)
       res.redirect('back')
     } catch (err) {
       next(err)
