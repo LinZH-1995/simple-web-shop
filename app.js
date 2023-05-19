@@ -18,7 +18,7 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }))
-app.use(expSession({ secret: 'secret', resave: false, saveUninitialized: false }))
+app.use(expSession({ secret: 'secret', resave: true, saveUninitialized: true, cookie: { maxAge: 1800000 } }))
 
 app.use(routes)
 
