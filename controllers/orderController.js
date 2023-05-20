@@ -2,6 +2,8 @@ const nodemailer = require('nodemailer')
 
 const { Order, Product, OrderItem, Cart } = require('../models')
 
+const newebpayHelper = require('../helpers/newebpay_helper.js')
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -74,7 +76,8 @@ const orderController = {
     try {
       const id = req.params.id
       const order = await Order.findByPk(id)
-      res.render('payment', { order })
+      const newebpayInfo = newebpayHelper.getNewebpayInfo(order.amount, '商品資訊', 'root@example.com')
+      res.render('payment', { order: order.toJSON(), newebpayInfo })
     } catch (err) {
       next(err)
     }
@@ -82,7 +85,12 @@ const orderController = {
 
   newebpayCallback: async (req, res, next) => {
     try {
-
+      console.log('===== newebpayCallback =====')
+      console.log(req.method)
+      console.log(req.query)
+      console.log(req.body)
+      console.log('==========')
+      res.redirect('/orders')
     } catch (err) {
       next(err)
     }

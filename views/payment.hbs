@@ -1,2 +1,14 @@
-<h3>準備為訂單編號： {{order.id}} 付款 </h3>
-<h4>總價 {{order.amount}} </h4>
+<h3>訂單編號：{{order.id}}</h3>
+<h4 class="mt-3">總價：{{order.amount}}</h4>
+
+<form name='Newebpay' action='{{newebpayInfo.PayGateWay}}' method="POST" class="mt-4">
+  MerchantID:
+  <input type="text" name="MerchantID" value="{{newebpayInfo.MerchantID}}" class="ml-2"><br>
+  TradeInfo:
+  <input type="text" name="TradeInfo" value="{{newebpayInfo.TradeInfo}}" class="mt-3 ml-2"><br>
+  TradeSha:
+  <input type="text" name="TradeSha" value="{{newebpayInfo.TradeSha}}" class="mt-3 ml-2"><br>
+  Version:
+  <input type="text" name="Version" value="{{newebpayInfo.Version}}" class="mt-3 ml-2"><br>
+  <button type="submit" class="btn btn-primary mt-3 mb-5 ml-2">確認付款</button>
+</form>
