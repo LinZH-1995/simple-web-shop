@@ -33,6 +33,9 @@ npm install
 ```
 #### 4. Import seed data (for test feature)
 ```
+create database simple-web-shop;
+```
+```
 npx sequelize db:migrate
 ```
 ```
