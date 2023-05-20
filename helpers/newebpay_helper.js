@@ -4,13 +4,13 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const URL = 'https://50a2-36-237-188-203.ngrok-free.app' //ngrok
+const URL = 'https://bc0f-36-237-188-203.ngrok-free.app' //ngrok
 const MerchantID = process.env.MerchantID
 const HashKey = process.env.HashKey
 const HashIV = process.env.HashPassword
 const PayGateWay = "https://ccore.newebpay.com/MPG/mpg_gateway"
-const ReturnURL = URL + "/orders/newebpay/callback?from=ReturnURL"
-const NotifyURL = URL + "/orders/newebpay/callback?from=NotifyURL"
+const ReturnURL = URL + "/orders/newebpay/callback/ReturnURL"
+const NotifyURL = URL + "/orders/newebpay/callback/NotifyURL"
 const ClientBackURL = URL + "/orders"
 
 const newebpayHelper = {

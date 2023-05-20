@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       serial_number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT(15)
       },
       amount: {
         type: Sequelize.INTEGER

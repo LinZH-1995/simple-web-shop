@@ -19,7 +19,8 @@ const orderController = {
         nest: true,
         include: [
           { model: Product, as: 'items', attributes: ['name', 'price'], through: { attributes: ['quantity'] } }
-        ]
+        ],
+        order: [['paymentStatus', 'ASC']]
       })
       const ordersData = orders.map(order => order.toJSON())
       res.render('orders', { orders: ordersData })
@@ -77,19 +78,37 @@ const orderController = {
       const id = req.params.id
       const order = await Order.findByPk(id)
       const newebpayInfo = newebpayHelper.getNewebpayInfo(order.amount, '商品資訊', 'root@example.com')
+      await order.update({ serialNumber: newebpayInfo.MerchantOrderNo })
       res.render('payment', { order: order.toJSON(), newebpayInfo })
     } catch (err) {
       next(err)
     }
   },
 
-  newebpayCallback: async (req, res, next) => {
+  newebpayCallbackReturnURL: async (req, res, next) => {
     try {
-      console.log('===== newebpayCallback =====')
+      console.log('===== newebpayCallbackReturnURL =====')
       console.log(req.method)
       console.log(req.query)
       console.log(req.body)
       console.log('==========')
+      res.redirect('/orders')
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  newebpayCallbackNotifyURL: async (req, res, next) => {
+    try {
+      console.log('===== newebpayCallbackNotifyURL =====')
+      console.log(req.method)
+      console.log(req.query)
+      console.log(req.body)
+      console.log('==========')
+      const AES_DecryptCode = newebpayHelper.mpg_aes_decrypt(req.body.TradeInfo)
+      const data = JSON.parse(AES_DecryptCode)
+      const order = await Order.findOne({ where: { serialNumber: data.Result.MerchantOrderNo } })
+      await order.update({ paymentStatus: 1 })
       res.redirect('/orders')
     } catch (err) {
       next(err)
