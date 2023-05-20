@@ -68,6 +68,24 @@ const orderController = {
     } catch (err) {
       next(err)
     }
+  },
+
+  getPayment: async (req, res, next) => {
+    try {
+      const id = req.params.id
+      const order = await Order.findByPk(id)
+      res.render('payment', { order })
+    } catch (err) {
+      next(err)
+    }
+  },
+
+  newebpayCallback: async (req, res, next) => {
+    try {
+
+    } catch (err) {
+      next(err)
+    }
   }
 }
 
