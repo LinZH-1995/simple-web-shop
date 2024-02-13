@@ -53,3 +53,13 @@ npm run dev   // Nodemon
 http://localhost:3000/
 ```
 
+## Preview Images
+![Home-Page](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop.png)
+
+![Cart](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop2.png)
+
+![Orders](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop3.png)
+
+![Order-ready-pay](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop4.png)
+
+![NewebPay-Page](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop5.png)
