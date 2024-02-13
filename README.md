@@ -54,12 +54,17 @@ http://localhost:3000/
 ```
 
 ## Preview Images
+Home Page：
 ![Home-Page](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop.png)
 
+Cart：
 ![Cart](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop2.png)
 
+Orders：
 ![Orders](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop3.png)
 
+Order Ready Pay Page：
 ![Order-ready-pay](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop4.png)
 
+NewebPay Page：
 ![NewebPay-Page](https://github.com/LinZH-1995/simple-web-shop/blob/main/images/simple-web-shop5.png)
